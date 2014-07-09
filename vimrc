@@ -4,8 +4,7 @@ let mapleader=","
 
 " To move to a misspelled word, use ]s and [s. The ]s command will move the cursor to the next misspelled word, the [s command will move the cursor back through the buffer to previous misspelled words.
 "Once the cursor is on the word, use z=, and Vim will suggest a list of alternatives that it thinks may be correct.
-set spell spelllang=en_us
-set nospell
+"set spell spelllang=en_us
 
 set clipboard=unnamed
 
@@ -118,7 +117,7 @@ set matchtime=5     " how many tenths of a second to blink matching brackets for
 
 set laststatus=2    "To display the status line always
 
-" Set 10 lines to the cursor - when moving vertically using j/k
+" Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
 " Sets how many lines of history VIM has to remember
@@ -144,7 +143,7 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
-" Substitute command in "very magic" mode by adding \v
+" Substitute command in "very magic" mode by adding \v aka grep extended
 nnoremap / /\v
 vnoremap / /\v
 cnoremap %s/ %smagic/\v
