@@ -45,11 +45,12 @@ MYNAME='David Hatch'
 export MYNAME
 
 # or set it and export it in same line
-export LESS='-M'
+# Less r option shows git colors properly instead of ESC
+export LESS='-Mr'
 export PATH="$HOME/bin:/user/local/bin:/usr/local/sbin:$PATH"
 
 export HISTSIZE=1000				    	# 500 is default
-export HISTTIMEFORMAT='%b %d %T  '		# using strftime
+export HISTTIMEFORMAT='%b %d %T  '		    # using strftime
 export HISTCONTROL=ignoreboth:erasedups		# ignoredups:ignorespace
 export HISTIGNORE="fg:history:history -d*:h:h -d*:pwd:exit:df:ll:ls:man *:"
 # append to the history file, don't overwrite it
@@ -58,22 +59,15 @@ shopt -s histappend
 # Save and reload the history after each command finishes
 #export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-
 # mac default
 #export PS1='\h:\W \u$ '    # OS X orig
 export PS1='\w\n\u@\h \$ '
 
-#export GREP_OPTIONS="--color=auto"
-
 # For OS X only
 function del() {
-if [ -z "$1" ]; then 
-    echo usage: $0 directory
-    return 0
-fi
-for thisArg in "$@"; do
-    mv -n "$thisArg" ~/.Trash
-done
+    for thisArg in "$@"; do
+        mv -n "$thisArg" ~/.Trash
+    done
 }
 export -f del
 
@@ -103,11 +97,6 @@ export -f extract
 if [ -f ~/.git-completion.bash ]; then
 	source ~/.git-completion.bash
 fi
-
-# This is for your bash prolile
-#if [ -f ~/.bashrc ]; then
-#	source ~/.bashrc
-#fi
 
 # Recursively remove files
 #find . -name "Thumbs.db" -print0 | xargs -0 rm
