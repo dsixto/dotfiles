@@ -2,8 +2,11 @@ set runtimepath^=~/.vim/plugin/ctrlp.vim
 let mapleader=","
 
 
-" To move to a misspelled word, use ]s and [s. The ]s command will move the cursor to the next misspelled word, the [s command will move the cursor back through the buffer to previous misspelled words.
-"Once the cursor is on the word, use z=, and Vim will suggest a list of alternatives that it thinks may be correct.
+" To move to a misspelled word, use ]s and [s. The ]s command will move the
+" cursor to the next misspelled word, the [s command will move the cursor back
+" through the buffer to previous misspelled words.
+" Once the cursor is on the word, use z=, and Vim will suggest a list of
+" alternatives that it thinks may be correct.
 "set spell spelllang=en_us
 
 set clipboard=unnamed
@@ -73,6 +76,7 @@ set formatoptions=c,q,r,t " This is a sequence of letters which describes how
                     "           after hitting <Enter> in Insert mode. 
                     " t         Auto-wrap text using textwidth (does not apply
                     "           to comments)
+                    " n         recognize numbered lists
  
 set ruler           " Show the line and column number of the cursor position,
                     " separated by a comma.
@@ -111,7 +115,8 @@ syntax on           " Enable syntax highlighting
 
 "set visualbell      " Use visual bell instead of beeping when doing something wrong
 
-"set cmdheight=2     " Set the command window height to 2 lines, to avoid many cases of having to press <Enter> to continue"
+"set cmdheight=2     " Set the command window height to 2 lines, to avoid many
+" cases of having to press <Enter> to continue"
 
 set matchtime=5     " how many tenths of a second to blink matching brackets for
 
@@ -121,7 +126,7 @@ set laststatus=2    "To display the status line always
 set so=7
 
 " Sets how many lines of history VIM has to remember
-set history=50  " default 20
+set history=100  " default 20
 
 " For regular expressions turn magic on
 set magic   " Magic on should be default but to make sure
@@ -183,10 +188,14 @@ nnoremap <f3> :!php `cygpath -w %` <CR>
 " Paste from windows clipboard
 "nmap <Leader>v "*P
 
-" Paste from OS X PasteBoard, but I have it configured so it works very well in insert mode and in normal mode. The nopaste setting makes sure that auto-indent doesn't go crazy when you try to paste something in. 
+" Paste from OS X PasteBoard, but I have it configured so it works very well in
+" insert mode and in normal mode. The nopaste setting makes sure that
+" auto-indent doesn't go crazy when you try to paste something in. 
 nmap <Leader>p :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 imap <Leader>p <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 
-" Copies text to OS X PasteBoard. If you are in normal mode, it will just grab the line your working on. If you in visual mode however, it will grab all the selected text. 
+" Copies text to OS X PasteBoard. If you are in normal mode, it will just grab
+" the line your working on. If you in visual mode however, it will grab all the
+" selected text. 
 nmap <Leader>c :.w !pbcopy<CR><CR>
 vmap <Leader>c :w !pbcopy<CR><CR>
