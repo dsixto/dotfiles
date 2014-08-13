@@ -93,6 +93,17 @@ extract () {
 }
 export -f extract
 
+delHistory() {
+    start=$1
+    end=$2
+    count=$(( end - start ))
+    while [[ $count -ge 0 ]] ; do
+        history -d "$start" 
+        ((count--))
+    done
+}
+export -f delHistory
+
 # This is for your git auto completion
 if [ -f ~/.git-completion.bash ]; then
 	source ~/.git-completion.bash
