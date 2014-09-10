@@ -47,12 +47,12 @@ export MYNAME
 # or set it and export it in same line
 # Less r option shows git colors properly instead of ESC
 export LESS='-Mr'
-export PATH="$HOME/bin:/user/local/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/bin:$(brew --prefix homebrew/php/php54)/bin:/user/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 
 export HISTSIZE=1000				    	# 500 is default
 export HISTTIMEFORMAT='%b %d %T  '		    # using strftime
 export HISTCONTROL=ignoreboth:erasedups		# ignoredups:ignorespace
-export HISTIGNORE="fg:history:history -d*:h:h -d*:pwd:exit:df:ll:ls:man *:"
+export HISTIGNORE="delHistory*:fg:history:history -d*:h:h -d*:pwd:exit:df:ll:ls:man *:"
 # append to the history file, don't overwrite it
 shopt -s histappend
 
