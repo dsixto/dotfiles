@@ -191,8 +191,8 @@ nnoremap <f3> :!php `cygpath -w %` <CR>
 " Paste from OS X PasteBoard, but I have it configured so it works very well in
 " insert mode and in normal mode. The nopaste setting makes sure that
 " auto-indent doesn't go crazy when you try to paste something in. 
-nmap <Leader>p :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-imap <Leader>p <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <Leader>v :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+imap <Leader>v <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 
 " Copies text to OS X PasteBoard. If you are in normal mode, it will just grab
 " the line your working on. If you in visual mode however, it will grab all the
