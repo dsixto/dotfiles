@@ -13,5 +13,7 @@
 # This loads in the configuration in .bashrc
 # Put all configuration there
 if [ -f ~/.bashrc ]; then
-	source ~/.bashrc
+    source ~/.bashrc
 fi
+PATHORIG="$PATH"
+export PATH="$HOME/bin:/user/local/bin:/usr/local/sbin:/usr/local/opt/mysql55/bin:$(brew --prefix homebrew/php/php54)/bin:$PATHORIG"
