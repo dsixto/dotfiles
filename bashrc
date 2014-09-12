@@ -47,7 +47,7 @@ export MYNAME
 # or set it and export it in same line
 # Less r option shows git colors properly instead of ESC
 export LESS='-Mr'
-export PATH="$HOME/bin:$(brew --prefix homebrew/php/php54)/bin:/user/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/opt/mysql55/bin:$(brew --prefix homebrew/php/php54)/bin:/user/local/bin:/usr/local/sbin:$PATH"
 
 export HISTSIZE=1000				    	# 500 is default
 export HISTTIMEFORMAT='%b %d %T  '		    # using strftime
