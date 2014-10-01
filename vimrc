@@ -182,11 +182,8 @@ nnoremap <f2> :NERDTreeToggle<CR>
 " run php on current buffer
 nnoremap <f3> :!php `cygpath -w %` <CR>
 
-" Yank whole file to windows clipboard
-"nmap <Leader>a :%y*<CR>
-
-" Paste from windows clipboard
-"nmap <Leader>v "*P
+" Display statistics
+nmap <Leader>g g<C-g>
 
 " Paste from OS X PasteBoard, but I have it configured so it works very well in
 " insert mode and in normal mode. The nopaste setting makes sure that
