@@ -18,7 +18,13 @@ alias stat='stat -x'
 alias tart='tar -tzvf'   # List file in archive
 alias tarc='tar -czvf'   # archive to file and gzip
 alias tarx='tar -xzvf'   # unarchive and ungzip
+alias gs='git status'
+# some apple script
+alias unmute="osascript -e 'set volume output muted false'"
+alias mute="osascript -e 'set volume output muted true'"
 
+# schedule wake in +7 seconds from now
+# sudo pmset schedule wake "$(date -j -v +7S "+%m/%d/%Y %H:%M:%S")"
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -61,6 +67,23 @@ shopt -s histappend
 # mac default
 #export PS1='\h:\W \u$ '    # OS X orig
 export PS1='\w\n\u@\h \$ '
+
+# GREP_COLOR codes
+# Attributes:   Text color:    Background:
+#   0 reset all   30 black       40 black
+#   1 bright      31 red         41 red
+#   2 dim         32 green       42 green
+#   4 underscore  33 yellow      43 yellow
+#   5 blink       34 blue        44 blue
+#   7 reverse     35 purple      45 purple
+#   8 hidden      36 cyan        46 cyan
+#                 37 white       47 white
+# Separate with ";"
+#
+export GREP_COLOR="34;40"
+
+# Specify options grep should use by default
+export GREP_OPTIONS="--color=auto"
 
 # For OS X only
 function del() {
