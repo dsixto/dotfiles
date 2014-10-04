@@ -22,6 +22,14 @@ alias gs='git status'
 # some apple script
 alias unmute="osascript -e 'set volume output muted false'"
 alias mute="osascript -e 'set volume output muted true'"
+# Dramatically improve grep performance - temporarily set collation to ascii
+# For grep version older than 2.7
+# Prepend 'LC_ALL=C'
+# ex. LC_ALL=C frep 'asdf' *.txt
+alias grep='LC_ALL=C grep'
+alias fgrep='LC_ALL=C fgrep'
+alias egrep='LC_ALL=C egrep'
+
 
 # schedule wake in +7 seconds from now
 # sudo pmset schedule wake "$(date -j -v +7S "+%m/%d/%Y %H:%M:%S")"
