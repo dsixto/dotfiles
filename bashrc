@@ -1,5 +1,6 @@
 export CLICOLOR=1   # simply enables coloring of your terminal.
 export LSCOLORS=GxFxCxDxBxegedabagaced  # specifies how to color specific items
+export EDITOR=/usr/bin/vim
 
 # some more ls aliases
 alias ll='ls -alh'
@@ -14,7 +15,6 @@ alias df='df -h'
 alias du='du -h'
 alias h='history'
 alias up='cd ..'
-alias stat='stat -x'
 alias tart='tar -tzvf'   # List file in archive
 alias tarc='tar -czvf'   # archive to file and gzip
 alias tarx='tar -xzvf'   # unarchive and ungzip
@@ -30,6 +30,8 @@ alias grep='LC_ALL=C grep'
 alias fgrep='LC_ALL=C fgrep'
 alias egrep='LC_ALL=C egrep'
 
+# Show bash keybindings
+alias showkeys="bind -p | grep -v '^#\|self-insert\|^$'"
 
 # schedule wake in +7 seconds from now
 # sudo pmset schedule wake "$(date -j -v +7S "+%m/%d/%Y %H:%M:%S")"
@@ -92,6 +94,22 @@ export GREP_COLOR="34;40"
 
 # Specify options grep should use by default
 export GREP_OPTIONS="--color=auto"
+
+# Use vi key bindings instead of emacs
+set -o vi
+bind -m vi-command ".":insert-last-argument
+bind -m vi-command "gg":beginning-of-history
+bind -m vi-command "G":end-of-history
+bind -m vi-insert "\C-l.":clear-screen
+bind -m vi-insert "\C-a.":beginning-of-line
+bind -m vi-insert "\C-e.":end-of-line
+bind -m vi-insert "\C-w.":backward-kill-word
+bind -m vi-insert "\C-k.":kill-line
+bind -m vi-insert "\C-s.":forward-search-history
+# Don't work
+#bind -m vi-insert "\ed.":kill-word
+#bind -m vi-insert "\er.":revert-line
+#bind -m vi-insert "jk":vi-movement-mode
 
 # For OS X only
 function del() {
