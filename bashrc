@@ -29,6 +29,7 @@ alias mute="osascript -e 'set volume output muted true'"
 alias grep='LC_ALL=C grep'
 alias fgrep='LC_ALL=C fgrep'
 alias egrep='LC_ALL=C egrep'
+alias less='less -MRS'
 
 # Show bash keybindings
 alias showkeys="bind -p | grep -v '^#\|self-insert\|^$'"
@@ -61,8 +62,6 @@ MYNAME='David Hatch'
 export MYNAME
 
 # or set it and export it in same line
-# Less r option shows git colors properly instead of ESC
-export LESS='-Mr'
 
 export HISTSIZE=1000				    	# 500 is default
 export HISTTIMEFORMAT='%b %d %T  '		    # using strftime
