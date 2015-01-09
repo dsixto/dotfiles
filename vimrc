@@ -154,7 +154,7 @@ vnoremap / /\v
 cnoremap %s/ %smagic/\v
 
 " Substitute command colon separated shortcut
-noremap ;; :%s:\v::g<Left><Left><Left>
+noremap ;; :s:\v::g<Left><Left><Left>
 noremap ;' :%s:\v::cg<Left><Left><Left><Left>
 
 " Edit and sourc vimrc file
