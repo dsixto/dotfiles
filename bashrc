@@ -41,6 +41,15 @@ alias showkeys="bind -p | grep -v '^#\|self-insert\|^$'"
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+# Todo.txt stuff
+#alias t='todo.sh -d $HOME/.todo.cfg'
+#complete -F _todo t
+alias t='/usr/local/Cellar/todo-txt/2.10/bin/todo.sh -d $HOME/.todo.cfg'
+source /usr/local/Cellar/todo-txt/2.10/etc/bash_completion.d/todo_completion complete -F _todo t
+export TODOTXT_DEFAULT_ACTION=ls
+# Turns auto archive off
+export TODOTXT_AUTO_ARCHIVE=0
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -66,7 +75,7 @@ export MYNAME
 export HISTSIZE=1000				    	# 500 is default
 export HISTTIMEFORMAT='%b %d %T  '		    # using strftime
 export HISTCONTROL=ignoreboth:erasedups		# ignoredups:ignorespace
-export HISTIGNORE="delHistory*:fg:history:history -d*:h:h -d*:pwd:exit:df:ll:ls:man *:"
+export HISTIGNORE="t *:delHistory*:fg:history:history -d*:h:h -d*:pwd:exit:df:ll:ls:man *:"
 # append to the history file, don't overwrite it
 shopt -s histappend
 
@@ -99,6 +108,7 @@ set -o vi
 bind -m vi-command ".":insert-last-argument
 bind -m vi-command "gg":beginning-of-history
 bind -m vi-command "G":end-of-history
+bind -m vi-command "u":undo
 bind -m vi-insert "\C-l.":clear-screen
 bind -m vi-insert "\C-a.":beginning-of-line
 bind -m vi-insert "\C-e.":end-of-line
