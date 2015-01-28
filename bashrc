@@ -41,6 +41,10 @@ alias showkeys="bind -p | grep -v '^#\|self-insert\|^$'"
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+# Bash completion without strict case
+bind "set completion-ignore-case on"
+bind "set show-all-if-ambiguous on"
+
 # Todo.txt stuff
 #alias t='todo.sh -d $HOME/.todo.cfg'
 #complete -F _todo t
