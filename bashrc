@@ -6,6 +6,7 @@ export EDITOR=/usr/bin/vim
 alias ll='ls -alh'
 alias la='ls -A'
 alias l='ls -CF'
+alias lc='ls -AlhtU'
 
 # can also redefine a command to change default options
 alias mv='mv -i'
