@@ -1,5 +1,5 @@
 set runtimepath^=~/.vim/plugin/ctrlp.vim
-let mapleader=","
+let mapleader=' '
 
 
 " To move to a misspelled word, use ]s and [s. The ]s command will move the
@@ -135,6 +135,9 @@ set magic   " Magic on should be default but to make sure
 " something
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
+set timeoutlen=500
+"set ttimeoutlen=0
+
 imap jk <ESC>
 
 " Window moving
@@ -154,8 +157,8 @@ vnoremap / /\v
 cnoremap %s/ %smagic/\v
 
 " Substitute command colon separated shortcut
-noremap ;; :s:\v::g<Left><Left><Left>
-noremap ;' :%s:\v::cg<Left><Left><Left><Left>
+noremap <Leader>; :s:\v::g<Left><Left><Left>
+noremap <Leader>' :%s:\v::g<Left><Left><Left><Left>
 
 " Edit and sourc vimrc file
 nnoremap <Leader>ev :vs $MYVIMRC<CR>
