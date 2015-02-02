@@ -158,7 +158,7 @@ cnoremap %s/ %smagic/\v
 
 " Substitute command colon separated shortcut
 noremap <Leader>; :s:\v::g<Left><Left><Left>
-noremap <Leader>' :%s:\v::g<Left><Left><Left><Left>
+noremap <Leader>' :%s:\v::g<Left><Left><Left>
 
 " Edit and sourc vimrc file
 nnoremap <Leader>ev :vs $MYVIMRC<CR>
