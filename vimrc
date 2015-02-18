@@ -182,8 +182,8 @@ nnoremap <f1> 0/private\<bar>protected\<bar>publicww"zywjmqGo?}dGopublic fun
 " Shortcut for nerdTree
 nnoremap <f2> :NERDTreeToggle<CR>
 
-" run php on current buffer
-nnoremap <f3> :!php `cygpath -w %` <CR>
+" run php on current file
+nnoremap <f3> :!php % <CR>
 
 " Display statistics
 nmap <Leader>g g<C-g>
