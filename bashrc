@@ -176,6 +176,9 @@ fi
 # Explanation 
 # find in current dir and below the name in quotes and print it ending with
 # null... -0 tells xargs that args are null seperated and removes each file
+# 
+# Newer way
+#find . -iname 'free*3*9*' -exec rm '{}' \;
 
 #File Permissions: Octal Notation
 #------------------------------------
