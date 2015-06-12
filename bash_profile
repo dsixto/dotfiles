@@ -14,7 +14,7 @@ fi
 
 
 PATHORIG="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin"
-export PATH="$HOME/bin:/user/local/bin:/usr/local/sbin:/usr/local/opt/mysql55/bin:$(brew --prefix homebrew/php/php54)/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/local/opt/mysql55/bin:$(brew --prefix homebrew/php/php54)/bin:$PATH"
 
 # This loads in the configuration in .bashrc
 # Put all configuration there
