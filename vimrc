@@ -9,12 +9,12 @@ let mapleader=' '
 " alternatives that it thinks may be correct.
 "set spell spelllang=en_us
 
-" the anonymous register is aliased to the * register - it represents the
-" system clipboard.
-" With this set, whatever is yanked or deleted in vim to the default
-" register(") will also be stored in *reg. Without, it won't store to the
-" system clipboard, you will have to manually yank to * so you can paste
-" outside of vim. See keybindings about system clipboard near end of file.
+" The default clipboard register is the * reg. The unnamed or " - double quote
+" register is the default register. Everything that yanked or changed,
+" deleted, etc. is placed in the unnamed reg. Setting clipboard to unnamed
+" means every yank and delete etc. will clobber the system clipboard. Instead I
+" defined mappings to yank and paste to the * register (default) with leader c
+" and leader v. See below...
 "set clipboard=unnamed
 
 
@@ -166,7 +166,7 @@ cnoremap %s/ %smagic/\v
 noremap <Leader>; :s:\v::g<Left><Left><Left>
 noremap <Leader>' :%s:\v::g<Left><Left><Left>
 
-" Edit and sourc vimrc file
+" Edit and source vimrc file
 nnoremap <Leader>ev :vs $MYVIMRC<CR>
 nnoremap <Leader>sv :source $MYVIMRC<CR>
 
@@ -207,18 +207,6 @@ vmap <Leader>v "*P
 " Copy to system clipboard
 nmap <Leader>c "*Y
 vmap <Leader>c "*y
-
-" Paste from OS X PasteBoard, but I have it configured so it works very well in
-" insert mode and in normal mode. The nopaste setting makes sure that
-" auto-indent doesn't go crazy when you try to paste something in. 
-"nmap <Leader>v :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-"imap <Leader>v <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-
-" Copies text to OS X PasteBoard. If you are in normal mode, it will just grab
-" the line your working on. If you in visual mode however, it will grab all the
-" selected text. 
-"nmap <Leader>c :.w !pbcopy<CR><CR>
-"vmap <Leader>c :w !pbcopy<CR><CR>
 
 " Undo/Redo chronologically regardless of undo branching
 "nnoremap <Leader>u :earlier<CR>
