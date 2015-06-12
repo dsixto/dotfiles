@@ -31,6 +31,7 @@ alias grep='LC_ALL=C grep'
 alias fgrep='LC_ALL=C fgrep'
 alias egrep='LC_ALL=C egrep'
 alias less='less -MRS'
+alias phptools="php $HOME/Sites/unified/tools/createSqlForModel.php"
 
 # Show bash keybindings
 alias showkeys="bind -p | grep -v '^#\|self-insert\|^$'"
