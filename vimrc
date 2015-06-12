@@ -9,7 +9,13 @@ let mapleader=' '
 " alternatives that it thinks may be correct.
 "set spell spelllang=en_us
 
-set clipboard=unnamed
+" the anonymous register is aliased to the * register - it represents the
+" system clipboard.
+" With this set, whatever is yanked or deleted in vim to the default
+" register(") will also be stored in *reg. Without, it won't store to the
+" system clipboard, you will have to manually yank to * so you can paste
+" outside of vim. See keybindings about system clipboard near end of file.
+"set clipboard=unnamed
 
 
 " .vimrc
@@ -115,10 +121,10 @@ syntax on           " Enable syntax highlighting
 
 "set visualbell      " Use visual bell instead of beeping when doing something wrong
 
-"set cmdheight=2     " Set the command window height to 2 lines, to avoid many
+set cmdheight=2    " Set the command window height to 2 lines, to avoid many 
 " cases of having to press <Enter> to continue"
 
-set matchtime=5     " how many tenths of a second to blink matching brackets for
+"set matchtime=5    " how many tenths of a second to blink matching brackets for
 
 set laststatus=2    "To display the status line always
 
@@ -191,14 +197,34 @@ nnoremap <f3> :!php % <CR>
 " Display statistics
 nmap <Leader>g g<C-g>
 
+" Yank whole file to system clipboard
+nmap <Leader>a :%y*<CR>
+
+" Paste from system clipboard
+nmap <Leader>v "*P
+vmap <Leader>v "*P
+
+" Copy to system clipboard
+nmap <Leader>c "*Y
+vmap <Leader>c "*y
+
 " Paste from OS X PasteBoard, but I have it configured so it works very well in
 " insert mode and in normal mode. The nopaste setting makes sure that
 " auto-indent doesn't go crazy when you try to paste something in. 
-nmap <Leader>v :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-imap <Leader>v <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+"nmap <Leader>v :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+"imap <Leader>v <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 
 " Copies text to OS X PasteBoard. If you are in normal mode, it will just grab
 " the line your working on. If you in visual mode however, it will grab all the
 " selected text. 
-nmap <Leader>c :.w !pbcopy<CR><CR>
-vmap <Leader>c :w !pbcopy<CR><CR>
+"nmap <Leader>c :.w !pbcopy<CR><CR>
+"vmap <Leader>c :w !pbcopy<CR><CR>
+
+" Undo/Redo chronologically regardless of undo branching
+"nnoremap <Leader>u :earlier<CR>
+"nnoremap <Leader>r :later<CR>
+
+" Find and replace in multiple files using arglist
+":args `grep -l findme application/`
+":argdo %s/findme/replacement/gc
+":argdo update 
