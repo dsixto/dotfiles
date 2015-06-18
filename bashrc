@@ -1,6 +1,6 @@
 export CLICOLOR=1   # simply enables coloring of your terminal.
 export LSCOLORS=GxFxCxDxBxegedabagaced  # specifies how to color specific items
-export EDITOR=/usr/bin/vim
+export EDITOR=vim
 
 # some more ls aliases
 alias ll='ls -alh'
