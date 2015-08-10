@@ -121,6 +121,8 @@ bind -m vi-insert "\C-e.":end-of-line
 bind -m vi-insert "\C-w.":backward-kill-word
 bind -m vi-insert "\C-k.":kill-line
 bind -m vi-insert "\C-s.":forward-search-history
+bind -m vi-insert "\C-n.":next-history
+bind -m vi-insert "\C-p.":previous-history
 # Don't work
 #bind -m vi-insert "\ed.":kill-word
 #bind -m vi-insert "\er.":revert-line
