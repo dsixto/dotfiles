@@ -121,7 +121,7 @@ syntax on           " Enable syntax highlighting
 
 "set visualbell      " Use visual bell instead of beeping when doing something wrong
 
-set cmdheight=2    " Set the command window height to 2 lines, to avoid many 
+"set cmdheight=2    " Set the command window height to 2 lines, to avoid many 
 " cases of having to press <Enter> to continue"
 
 "set matchtime=5    " how many tenths of a second to blink matching brackets for
