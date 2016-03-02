@@ -19,7 +19,8 @@ Plugin 'scrooloose/nerdtree'  " file drawer, open with :NERDTreeToggle
 Plugin 'scrooloose/syntastic' " syntax checking plugin for Vim.
 Plugin 'tpope/vim-fugitive'   " Ultimate Git helper
 Plugin 'airblade/vim-gitgutter' " shows a git diff in the gutter 
-"Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 "Bundle 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 "Bundle 'joonty/vdebug.git'
 
@@ -163,7 +164,7 @@ set timeoutlen=500
 set cursorline
 
 " set cursorline colors
-highlight cursorline term=bold cterm=NONE ctermbg=darkgrey ctermfg=none
+highlight cursorline term=bold cterm=NONE ctermbg=235 ctermfg=none
 
 " set color of number column on cursorline
 highlight cursorlinenr ctermbg=235 ctermfg=white
