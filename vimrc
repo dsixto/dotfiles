@@ -1,6 +1,37 @@
-set runtimepath^=~/.vim/plugin/ctrlp.vim
-let mapleader=' '
+""""""""""""""""""""""""""""""""""""""""
+" Plugins
+""""""""""""""""""""""""""""""""""""""""
 
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'ctrlpvim/ctrlp.vim'   " fuzzy find files
+Plugin 'scrooloose/nerdtree'  " file drawer, open with :NERDTreeToggle
+Plugin 'scrooloose/syntastic' " syntax checking plugin for Vim.
+Plugin 'tpope/vim-fugitive'   " Ultimate Git helper
+Plugin 'airblade/vim-gitgutter' " shows a git diff in the gutter 
+"Plugin 'bling/vim-airline'
+"Bundle 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
+"Bundle 'joonty/vdebug.git'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" see :h vundle for more details or wiki for FAQ
+
+
+""""""""""""""""""""""""""""""""""""""""
+" General settings
+""""""""""""""""""""""""""""""""""""""""
 
 " To move to a misspelled word, use ]s and [s. The ]s command will move the
 " cursor to the next misspelled word, the [s command will move the cursor back
@@ -16,10 +47,6 @@ let mapleader=' '
 " defined mappings to yank and paste to the * register (default) with leader c
 " and leader v. See below...
 "set clipboard=unnamed
-
-
-" .vimrc
-" See: http://vimdoc.sourceforge.net/htmldoc/options.html for details
 
 " For multi-byte character support (CJK support, for example):
 "set fileencodings=ucs-bom,utf-8,cp936,big5,euc-jp,euc-kr,gb18030,latin1
@@ -40,7 +67,10 @@ set smarttab        " When on, a <Tab> in front of a line inserts blanks
  
 set showcmd         " Show (partial) command in status line.
 
-"set number          " Show line numbers.
+set number          " Show line numbers.
+
+set relativenumber  " Show relative numbers
+
 
 set showmatch       " When a bracket is inserted, briefly jump to the matching
                     " one. The jump is only done if the match can be seen on the
@@ -94,28 +124,14 @@ set background=dark " When set to "dark", Vim will try to use colors that look
  
 set mouse=a         " Enable the use of the mouse.
 
-
-" URL: http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
-" Description: A minimal, but feature rich, example .vimrc. If you are a
-"              newbie, basing your first .vimrc on this file is a good choice.
-"              If you're a more advanced user, building your own .vimrc based
-"              on this file is still a good idea.
-
-"------------------------------------------------------------
-" Features {{{1
-"
-" These options and commands enable some very useful features in Vim, that
-" no user should have to live without.
-
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
-set nocompatible
+"set nocompatible
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
-filetype indent plugin on
+"filetype indent plugin on
 
 syntax on           " Enable syntax highlighting
 
@@ -144,7 +160,25 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set timeoutlen=500
 "set ttimeoutlen=0
 
-imap jk <ESC>
+set cursorline
+
+" set cursorline colors
+highlight cursorline term=bold cterm=NONE ctermbg=darkgrey ctermfg=none
+
+" set color of number column on cursorline
+highlight cursorlinenr ctermbg=235 ctermfg=white
+
+" Highlights the current line number
+highlight linenr term=bold cterm=none ctermfg=darkgrey ctermbg=none gui=none guifg=darkgrey
+
+
+""""""""""""""""""""""""""""""""""""""""
+" Remapping
+""""""""""""""""""""""""""""""""""""""""
+
+let mapleader=' '   " Set leader key to space
+
+imap jk <Esc>
 
 " Window moving
 nmap <silent> <C-Up> :wincmd k<CR>
@@ -207,6 +241,9 @@ vmap <Leader>v "*P
 " Copy to system clipboard
 nmap <Leader>c "*Y
 vmap <Leader>c "*y
+
+" Copy to clipboard current file path
+nmap <Leader>fp :let @* = expand("%")<CR>
 
 " Undo/Redo chronologically regardless of undo branching
 "nnoremap <Leader>u :earlier<CR>
