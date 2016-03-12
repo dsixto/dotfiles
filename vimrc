@@ -19,8 +19,10 @@ Plugin 'scrooloose/nerdtree'  " file drawer, open with :NERDTreeToggle
 Plugin 'scrooloose/syntastic' " syntax checking plugin for Vim.
 Plugin 'tpope/vim-fugitive'   " Ultimate Git helper
 Plugin 'airblade/vim-gitgutter' " shows a git diff in the gutter 
-Plugin 'vim-airline/vim-airline'
+Plugin 'bling/vim-airline'    " Pretty vim status bar
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'xolox/vim-misc'       " Required by easytags.
+Plugin 'xolox/vim-easytags'   " Automated tag file generation and syntax highlighting of tags
 "Bundle 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 "Bundle 'joonty/vdebug.git'
 
@@ -67,6 +69,12 @@ set smarttab        " When on, a <Tab> in front of a line inserts blanks
                     " at the start of the line.
  
 set showcmd         " Show (partial) command in status line.
+
+set showmode        " Display the mode you're in.
+
+set wildmenu        " Enhanced command line completion.
+
+set wildmode=list:longest         " Complete files like a shell.
 
 set number          " Show line numbers.
 
@@ -192,6 +200,12 @@ nmap <silent> <C-j> :wincmd j<CR>
 nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
+" Save files faster
+nnoremap <Leader>w :w<CR>
+
+" turn off search highlight
+nnoremap <leader>l :nohlsearch<CR>
+
 " Substitute command in "very magic" mode by adding \v aka grep extended
 nnoremap / /\v
 vnoremap / /\v
@@ -254,3 +268,34 @@ nmap <Leader>fp :let @* = expand("%")<CR>
 ":args `grep -l findme application/`
 ":argdo %s/findme/replacement/gc
 ":argdo update 
+
+"""""""""""""""""""""""""""""""""""""""
+" airline
+"""""""""""""""""""""""""""""""""""""""
+
+" need it for airline symbols
+set encoding=utf-8
+
+" airline settings
+let g:airline#extensions#syntastic#enabled=1
+let g:airline_powerline_fonts=1
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = ''
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'ξ'
+"let g:airline_theme='solarized'
+
