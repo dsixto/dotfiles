@@ -204,7 +204,10 @@ nmap <silent> <C-h> :wincmd h<CR>
 nmap <silent> <C-l> :wincmd l<CR>
 
 " Save files faster
-nnoremap <Leader>w :w<CR>
+nnoremap <Leader>s :w<CR>
+
+" Save As
+nnoremap <Leader>sa :w %:h/
 
 " turn off search highlight
 nnoremap <leader>l :nohlsearch<CR>
