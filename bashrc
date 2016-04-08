@@ -19,7 +19,6 @@ alias up='cd ..'
 alias tart='tar -tzvf'   # List file in archive
 alias tarc='tar -czvf'   # archive to file and gzip
 alias tarx='tar -xzvf'   # unarchive and ungzip
-alias gs='git status'
 # some apple script
 alias unmute="osascript -e 'set volume output muted false'"
 alias mute="osascript -e 'set volume output muted true'"
@@ -32,6 +31,13 @@ alias fgrep='LC_ALL=C fgrep'
 alias egrep='LC_ALL=C egrep'
 alias less='less -MRS'
 alias phptools="php $HOME/Sites/unified/tools/createSqlForModel.php"
+alias getVundle="git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
+
+# Git aliases
+alias g='git status'
+alias ga='git add'
+alias gc='git commit -v'
+alias gd='git diff'
 
 # Show bash keybindings
 alias showkeys="bind -p | grep -v '^#\|self-insert\|^$'"
