@@ -38,6 +38,7 @@ alias g='git status'
 alias ga='git add'
 alias gc='git commit -v'
 alias gd='git diff'
+alias gu='git remote update'
 
 # Show bash keybindings
 alias showkeys="bind -p | grep -v '^#\|self-insert\|^$'"
