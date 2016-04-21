@@ -39,6 +39,7 @@ alias ga='git add'
 alias gc='git commit -v'
 alias gd='git diff'
 alias gu='git remote update'
+alias gsi='git status --ignored'
 
 # Show bash keybindings
 alias showkeys="bind -p | grep -v '^#\|self-insert\|^$'"
@@ -70,14 +71,14 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 echo ""
-echo -n "Welcome to Unix on Mac OS X, "; whoami
+echo -n "Welcome to bash on $OSTYPE, "; whoami
 echo ""
 echo -n "Today is "; date "+%m-%d-%Y %H:%M:%S"
 echo ""
 cal
 echo -n "Uptime: "; uptime
 echo ""
-echo "to edit,     'nano .bashrc'"
+echo "to edit,     'vim ~/.bashrc'"
 echo ""
 
 MYNAME='David Hatch'
