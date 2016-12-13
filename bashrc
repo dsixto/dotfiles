@@ -40,6 +40,7 @@ alias gc='git commit -v'
 alias gd='git diff'
 alias gu='git remote update'
 alias gsi='git status --ignored'
+alias gl='git log'
 
 # Show bash keybindings
 alias showkeys="bind -p | grep -v '^#\|self-insert\|^$'"
