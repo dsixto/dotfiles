@@ -26,6 +26,7 @@ Plugin 'xolox/vim-easytags'   " Automated tag file generation and syntax highlig
 Plugin 'godlygeek/tabular'    " Easy formatting to the same column width
 Plugin 'tpope/vim-surround'   " Easily add/change surroundings
 Plugin 'scrooloose/nerdcommenter'  " Comment whatever
+Plugin 'skwp/greplace.vim'    " search and replace across many files
 "Bundle 'git://drupalcode.org/project/vimrc.git', {'rtp': 'bundle/vim-plugin-for-drupal/'}
 "Bundle 'joonty/vdebug.git'
 
@@ -305,3 +306,4 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'ξ'
 "let g:airline_theme='solarized'
 
+"set shell=/usr/local/bin/bash\ -O\ globstar
