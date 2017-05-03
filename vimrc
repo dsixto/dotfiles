@@ -21,8 +21,8 @@ Plugin 'tpope/vim-fugitive'   " Ultimate Git helper
 Plugin 'airblade/vim-gitgutter' " shows a git diff in the gutter 
 Plugin 'bling/vim-airline'    " Pretty vim status bar
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'xolox/vim-misc'       " Required by easytags.
-Plugin 'xolox/vim-easytags'   " Automated tag file generation and syntax highlighting of tags
+"Plugin 'xolox/vim-misc'       " Required by easytags.
+"Plugin 'xolox/vim-easytags'   " Automated tag file generation and syntax highlighting of tags
 Plugin 'godlygeek/tabular'    " Easy formatting to the same column width
 Plugin 'tpope/vim-surround'   " Easily add/change surroundings
 Plugin 'scrooloose/nerdcommenter'  " Comment whatever
@@ -90,7 +90,7 @@ set showmatch       " When a bracket is inserted, briefly jump to the matching
                     " screen. The time to show the match can be set with
                     " 'matchtime'.
  
-"set hlsearch        " When there is a previous search pattern, highlight all
+set hlsearch        " When there is a previous search pattern, highlight all
                     " its matches.
  
 set incsearch       " While typing a search command, show immediately where the
@@ -137,6 +137,9 @@ set background=dark " When set to "dark", Vim will try to use colors that look
  
 set mouse=a         " Enable the use of the mouse.
 
+set directory=~/tmp,/var/tmp,/tmp  " By setting the 'directory' option you can place the swap
+                    " file in another place than where the edited file is.
+                    "
 " Set 'nocompatible' to ward off unexpected things that your distro might
 " have made, as well as sanely reset options when re-sourcing .vimrc
 "set nocompatible
@@ -174,6 +177,8 @@ set timeoutlen=500
 "set ttimeoutlen=0
 
 set cursorline
+
+set pastetoggle=<F10>
 
 " set cursorline colors
 highlight cursorline term=bold cterm=NONE ctermbg=235 ctermfg=none
@@ -218,6 +223,10 @@ nnoremap / /\v
 vnoremap / /\v
 cnoremap %s/ %smagic/\v
 
+" New files
+nnoremap <Leader>n :new<CR>
+nnoremap <Leader>nv :vnew<CR>
+
 " Substitute command colon separated shortcut
 noremap <Leader>; :s:\v::g<Left><Left><Left>
 noremap <Leader>' :%s:\v::g<Left><Left><Left>
@@ -242,13 +251,29 @@ noremap <Leader>d ovar_dump();die('here');k0f(a
 " Add getter and setters for properties
 nnoremap <f1> 0/private\<bar>protected\<bar>publicww"zywjmqGo?}dGopublic function set "zpbhx~A($"zpA){	$this->"zpA = $"zpA;return $this;}<<oo	public function get "zpbhx~A(){	return $this->"zpA;}}V(((((='q
 
-"map <f5> :!php 'd:\wamp\www\unified\tools\illustratorimport.php' <CR>
-
 " Shortcut for nerdTree
 nnoremap <f2> :NERDTreeToggle<CR>
 
-" run php on current file
+" Open nerdTree to current file location
+nnoremap <Leader>f :NERDTreeFind<CR>
+
+" run php on current buffer
 nnoremap <f3> :!php % <CR>
+
+" run python3 on current buffer
+nnoremap <f4> :!python3 % <CR>
+
+" Convert dos to unix
+nnoremap <f5> :update <bar> :e ++ff=dos <bar> :setlocal ff=unix <CR>
+
+" Convert unix LF Fileformat to dos CR/LF
+nnoremap <f6> :update <bar> e ++ff=dos <CR>
+
+" Convert tabs to space
+nnoremap <f7> :retab <CR>
+
+" Remove trailing whitespace
+nnoremap <silent> <f8> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
 " Display statistics
 nmap <Leader>g g<C-g>
