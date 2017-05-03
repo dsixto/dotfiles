@@ -6,7 +6,9 @@ export EDITOR=vim
 alias ll='ls -alh'
 alias la='ls -A'
 alias l='ls -CF'
+alias lt='ls -alht' # Sort by mod date
 alias lc='ls -AlhtU'
+alias lad='ls -d */'
 
 # can also redefine a command to change default options
 alias mv='mv -i'
@@ -32,6 +34,10 @@ alias egrep='LC_ALL=C egrep'
 alias less='less -MRS'
 alias phptools="php $HOME/Sites/unified/tools/createSqlForModel.php"
 alias getVundle="git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
+alias findswap="find . -iname '*.swp'"
+alias rmswap="find . -iname '*.swp' -print0 | xargs -0 rm"
+# Show bash keybindings
+alias showkeys="bind -p | grep -v '^#\|self-insert\|^$'"
 
 # Git aliases
 alias g='git status'
@@ -41,20 +47,12 @@ alias gd='git diff'
 alias gu='git remote update'
 alias gsi='git status --ignored'
 alias gl='git log'
-
-# Show bash keybindings
-alias showkeys="bind -p | grep -v '^#\|self-insert\|^$'"
+alias gch='git checkout'
+alias gchb='git checkout -b'
+alias gca='git commit --amend'
 
 # schedule wake in +7 seconds from now
 # sudo pmset schedule wake "$(date -j -v +7S "+%m/%d/%Y %H:%M:%S")"
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# Bash completion without strict case
-bind "set completion-ignore-case on"
-bind "set show-all-if-ambiguous on"
 
 # Todo.txt stuff
 #alias t='todo.sh -d $HOME/.todo.cfg'
@@ -71,6 +69,10 @@ export TODOTXT_AUTO_ARCHIVE=0
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+# Bash completion without strict case
+bind "set completion-ignore-case on"
+bind "set show-all-if-ambiguous on"
+
 echo ""
 echo -n "Welcome to bash on $OSTYPE, "; whoami
 echo ""
@@ -93,10 +95,12 @@ export HISTCONTROL=ignoreboth:erasedups		# ignoredups:ignorespace
 export HISTIGNORE="t *:delHistory*:fg:history:history -d*:h:h -d*:pwd:exit:df:ll:ls:man *:"
 # append to the history file, don't overwrite it
 shopt -s histappend
+shopt -s globstar # Turn on **
 
 # Save and reload the history after each command finishes
 #export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
+export EDITOR=vim
 # mac default
 #export PS1='\h:\W \u$ '    # OS X orig
 export PS1='\w\n\u@\h \$ '
@@ -117,25 +121,6 @@ export GREP_COLOR="34;40"
 
 # Specify options grep should use by default
 export GREP_OPTIONS="--color=auto"
-
-# Use vi key bindings instead of emacs
-set -o vi
-bind -m vi-command ".":insert-last-argument
-bind -m vi-command "gg":beginning-of-history
-bind -m vi-command "G":end-of-history
-bind -m vi-command "u":undo
-bind -m vi-insert "\C-l.":clear-screen
-bind -m vi-insert "\C-a.":beginning-of-line
-bind -m vi-insert "\C-e.":end-of-line
-bind -m vi-insert "\C-w.":backward-kill-word
-bind -m vi-insert "\C-k.":kill-line
-bind -m vi-insert "\C-s.":forward-search-history
-bind -m vi-insert "\C-n.":next-history
-bind -m vi-insert "\C-p.":previous-history
-# Don't work
-#bind -m vi-insert "\ed.":kill-word
-#bind -m vi-insert "\er.":revert-line
-#bind -m vi-insert "jk":vi-movement-mode
 
 # For OS X only
 function del() {
@@ -167,7 +152,7 @@ extract () {
 }
 export -f extract
 
-delHistory() {
+delHistory () {
     start=$1
     end=$2
     count=$(( end - start ))
@@ -177,6 +162,11 @@ delHistory() {
     done
 }
 export -f delHistory
+
+path () {
+    echo $PATH | sed 's/\:/\n/g'
+}
+export -f path
 
 # This is for your git auto completion
 if [ -f ~/.git-completion.bash ]; then
