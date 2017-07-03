@@ -269,11 +269,14 @@ nnoremap <f5> :update <bar> :e ++ff=dos <bar> :setlocal ff=unix <CR>
 " Convert unix LF Fileformat to dos CR/LF
 nnoremap <f6> :update <bar> e ++ff=dos <CR>
 
-" Convert tabs to space
-nnoremap <f7> :retab <CR>
+" Toggle on/off spell checker
+nnoremap <f7> :setlocal spell! spelllang=en_us <CR>
 
 " Remove trailing whitespace
 nnoremap <silent> <f8> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
+" Convert tabs to space
+nnoremap <f9> :retab <CR>
 
 " Display statistics
 nmap <Leader>g g<C-g>
@@ -284,7 +287,7 @@ nmap <Leader>a :%y*<CR>
 " Paste from system clipboard
 nnoremap <Leader>v "*P
 vnoremap <Leader>v "*P
-inoremap <Leader>v <C-r><C-p>*
+"inoremap <Leader>v <C-r><C-p>*
 
 " Copy to system clipboard
 nnoremap <Leader>c "*Y
