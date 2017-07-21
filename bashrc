@@ -164,7 +164,7 @@ delHistory () {
 export -f delHistory
 
 path () {
-    echo $PATH | sed 's/\:/\n/g'
+    tr : '\n' <<< $PATH
 }
 export -f path
 
