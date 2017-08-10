@@ -38,6 +38,10 @@ alias findswap="find . -iname '*.swp'"
 alias rmswap="find . -iname '*.swp' -print0 | xargs -0 rm"
 # Show bash keybindings
 alias showkeys="bind -p | grep -v '^#\|self-insert\|^$'"
+alias st="tmux attach-session || tmuxinator start mine || tmux"
+alias brewck="brew update; brew outdated"
+alias brewup="brew update && brew upgrade && brew cleanup && brew doctor"
+alias eb="vim $HOME/.bashrc" # Edit Bash
 
 # Git aliases
 alias g='git status'
@@ -69,9 +73,6 @@ export TODOTXT_AUTO_ARCHIVE=0
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-# Bash completion without strict case
-bind "set completion-ignore-case on"
-bind "set show-all-if-ambiguous on"
 
 echo ""
 echo -n "Welcome to bash on $OSTYPE, "; whoami
@@ -103,7 +104,8 @@ shopt -s globstar # Turn on **
 export EDITOR=vim
 # mac default
 #export PS1='\h:\W \u$ '    # OS X orig
-export PS1='\w\n\u@\h \$ '
+RESET="\[$(tput sgr0)\]"
+export PS1="\e[33;40m\w$RESET\n\e[34m\u@\h$RESET \e[35m\$$RESET "
 
 # GREP_COLOR codes
 # Attributes:   Text color:    Background:
@@ -121,6 +123,22 @@ export GREP_COLOR="34;40"
 
 # Specify options grep should use by default
 export GREP_OPTIONS="--color=auto"
+
+##############################
+# Readline options
+##############################
+# Bash completion without strict case
+bind "set completion-ignore-case on"
+bind "set show-all-if-ambiguous on"
+
+# Up/Down arrow for filtered history search
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+# Meta+left/right arrow
+bind '";9D": backward-word'
+bind '";9C": forward-word'
+##############################
 
 # For OS X only
 function del() {
