@@ -54,6 +54,7 @@ alias gl='git log'
 alias gch='git checkout'
 alias gchb='git checkout -b'
 alias gca='git commit --amend'
+alias gp='git push'
 
 # schedule wake in +7 seconds from now
 # sudo pmset schedule wake "$(date -j -v +7S "+%m/%d/%Y %H:%M:%S")"
