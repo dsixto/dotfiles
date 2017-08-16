@@ -38,10 +38,11 @@ alias findswap="find . -iname '*.swp'"
 alias rmswap="find . -iname '*.swp' -print0 | xargs -0 rm"
 # Show bash keybindings
 alias showkeys="bind -p | grep -v '^#\|self-insert\|^$'"
-alias st="tmux attach-session || tmuxinator start mine || tmux"
+alias st="tmux attach-session || tmuxp load work || tmux"
 alias brewck="brew update; brew outdated"
 alias brewup="brew update && brew upgrade && brew cleanup && brew doctor"
 alias eb="vim $HOME/.bashrc" # Edit Bash
+alias ta='tmux attach-session'
 
 # Git aliases
 alias g='git status'
@@ -98,6 +99,8 @@ export HISTIGNORE="t *:delHistory*:fg:history:history -d*:h:h -d*:pwd:exit:df:ll
 # append to the history file, don't overwrite it
 shopt -s histappend
 shopt -s globstar # Turn on **
+shopt -o -s notify
+shopt -q -s cdspell
 
 # Save and reload the history after each command finishes
 #export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
