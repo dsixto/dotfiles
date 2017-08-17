@@ -43,6 +43,7 @@ alias brewck="brew update; brew outdated"
 alias brewup="brew update && brew upgrade && brew cleanup && brew doctor"
 alias eb="vim $HOME/.bashrc" # Edit Bash
 alias ta='tmux attach-session'
+alias tl='tmux list-session'
 
 # Git aliases
 alias g='git status'
@@ -109,7 +110,10 @@ export EDITOR=vim
 # mac default
 #export PS1='\h:\W \u$ '    # OS X orig
 RESET="\[$(tput sgr0)\]"
-export PS1="\e[33;40m\w$RESET\n\e[34m\u@\h$RESET \e[35m\$$RESET "
+YELLOW="\[$(tput setaf 3; tput setab 0)\]"
+BLUE="\[$(tput setaf 4)\]"
+PURPLE="\[$(tput setaf 5)\]"
+export PS1="$YELLOW\w$RESET\n$BLUE\u@\h$RESET $PURPLE\$$RESET "
 
 # GREP_COLOR codes
 # Attributes:   Text color:    Background:
