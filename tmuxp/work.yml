@@ -1,0 +1,9 @@
+session_name: work
+windows:
+  - window_name: bash
+    layout: tiled
+    panes:
+      - cd bin
+  - window_name: dev
+    panes:
+      -
