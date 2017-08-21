@@ -85,8 +85,6 @@ echo ""
 cal
 echo -n "Uptime: "; uptime
 echo ""
-echo "to edit,     'vim ~/.bashrc'"
-echo ""
 
 MYNAME='David Hatch'
 export MYNAME
@@ -144,8 +142,11 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
 # Meta+left/right arrow
-bind '";9D": backward-word'
-bind '";9C": forward-word'
+bind '"\e[1;9D": backward-word'
+bind '"\e[1;9C": forward-word'
+# Same but in tmux
+bind '"\e[1;3D": backward-word'
+bind '"\e[1;3C": forward-word'
 ##############################
 
 # For OS X only
